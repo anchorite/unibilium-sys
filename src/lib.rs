@@ -18,6 +18,28 @@ impl fmt::Display for unibi_boolean {
     }
 }
 
+impl fmt::Display for unibi_numeric {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let cstr = unsafe { CStr::from_ptr(unibi_name_num(*self)) };
+        write!(
+            f,
+            "{}",
+            cstr.to_str().expect("Failed to parse UTF-8 string")
+        )
+    }
+}
+
+impl fmt::Display for unibi_string {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let cstr = unsafe { CStr::from_ptr(unibi_name_str(*self)) };
+        write!(
+            f,
+            "{}",
+            cstr.to_str().expect("Failed to parse UTF-8 string")
+        )
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
