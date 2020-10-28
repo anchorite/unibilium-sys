@@ -1,3 +1,7 @@
+//! # Overview
+//!
+//! This is wrapper around C unibilium library. Use instead the higher level unibilium library,
+//! which provided Rust friendly interface around this one.
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
